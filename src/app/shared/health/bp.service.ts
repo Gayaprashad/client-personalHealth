@@ -30,9 +30,11 @@ export class BpService {
     if(bpLocal.getHref()=='/bp-add'){
       console.log("save() is executed");
       return this.http.post(this.API+'/set-bp-all',bpLocal.getBp());
+      console.log("statement after return");
     }else{
       console.log("save() is executed");
       return this.http.post(this.API+'/set-bp-one',bpLocal.getBp());
+      console.log("statement after return");
     }
 
   }

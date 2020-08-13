@@ -1,1 +1,36 @@
-<p>sugar-edit works!</p>
+<mat-card>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-card-title>Details </mat-card-title>
+        <mat-card-content>     
+            <mat-card>
+                {{userForm.value|json}}
+                <br>
+                <mat-form-field>
+                    <mat-label>Date</mat-label>
+                    <input matInput name="Date" type="date" [(ngModel)]="sugarLocal.recordDate" class="form-control">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Morning</mat-label>
+                    <input matInput name="morning" type="text" [(ngModel)]="sugarLocal.morning" class="form-control">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Afternoon</mat-label>
+                    <input matInput name="afternoon" type="text" [(ngModel)]="sugarLocal.afternoon" class="form-control">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Night</mat-label>
+                    <input matInput name="night" type="text" [(ngModel)]="sugarLocal.night" class="form-control">
+                </mat-form-field>
+            </mat-card>       
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="secondary" (click)="remove(sugarLocal.id)"
+                    *ngIf="sugarLocal.id" type="button">Delete</button>
+            <a mat-button routerLink="/home">Cancel</a>
+        </mat-card-actions>
+    </form>
+</mat-card>

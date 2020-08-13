@@ -41,7 +41,13 @@ export class BpEditComponent implements OnInit {
     
   }
 
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+  }
   
+  gotoList(){
+    this.router.navigate(['/bp-list']);
+  }
 
   onSubmit(){
     this.bpLocal.recordDate+='T00:00:00';
@@ -49,11 +55,13 @@ export class BpEditComponent implements OnInit {
       this.bpCover =new BpCover(this.bpLocal,'/bp-edit');
       this.bpService.save(this.bpCover).subscribe(result=>{
         console.log("Bp service is called");
+        this.gotoList();
       },error=> console.error(error));
     }else{
       this.bpCover=new BpCover(this.bpLocal,'/bp-add')
       this.bpService.save(this.bpCover).subscribe(result=>{
         console.log("Bp service is called");
+        this.gotoList();
       },error=> console.error(error));
     }
     
@@ -62,7 +70,8 @@ export class BpEditComponent implements OnInit {
   remove(id:string){
     console.log(id);
     this.bpService.removeRecord(id).subscribe(result=>{
-      console.log("remove function is called")
+      console.log("remove function is called");
+      this.gotoList();
     },error=>console.error(error));
   }
 

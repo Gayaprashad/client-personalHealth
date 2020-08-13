@@ -5,25 +5,26 @@
 <mat-card>
     <mat-card-title>Record</mat-card-title>
     <mat-card-content>
-        <table>
-            <thead>
-                <td>Id</td>
-                <td>Record Date</td>
-                <td>Morning</td>
-                <td>Afternoon</td>
-                <td>Evening</td>
-            </thead>
-            <tbody>
-                <tr *ngFor="let sugar of sugars">
-                    <td>{{sugar.id}}</td>
-                    <td>{{sugar.recordDate}}</td>
-                    <td>{{sugar.morning}}</td>
-                    <td>{{sugar.afternoon}}</td>
-                    <td>{{sugar.night}}</td>
-                    <td><button>Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <mat-card>
+            <table>
+                <thead>
+                    <td>Record Date</td>
+                    <td>Morning</td>
+                    <td>Afternoon</td>
+                    <td>Evening</td>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let sugar of sugars">
+                        <td>{{sugar.recordDate}}</td>
+                        <td>{{sugar.morning}}</td>
+                        <td>{{sugar.afternoon}}</td>
+                        <td>{{sugar.night}}</td>
+                        <td><a mat-button [routerLink]="['/sugar-edit',sugar.id]">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card>
+        <button mat-fab color="primary" [routerLink]="['/sugar-add']">Add</button>
     </mat-card-content>
 </mat-card>
 </div>

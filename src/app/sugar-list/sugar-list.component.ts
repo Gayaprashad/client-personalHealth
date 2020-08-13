@@ -16,6 +16,9 @@ export class SugarListComponent implements OnInit {
 
     this.sugarService.getAll().subscribe(data=>{
       this.sugars =data;
+      for (var i=0;i<this.sugars.length;i++){
+        this.sugars[i].recordDate = this.sugars[i].recordDate.slice(0,10);
+      }
     });
   }
 
