@@ -1,0 +1,55 @@
+<mat-card>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-card-title>Details </mat-card-title>
+        <mat-card-content>     
+            <mat-card>
+                <!-- ngForm -lets angular know the variable that will be used to access the form details later -->
+                <!-- ngModel -lets angular know which variables to be tracked  -->
+                {{userForm.value|json}}
+                <br>
+                <!-- <div class="form-group">
+                    <label>Date</label>
+                    <input name="Date" type="date" [(ngModel)]="bpLocal.recordDate" class="form-control">
+                </div> -->
+                <mat-form-field>
+                    <mat-label>Date</mat-label>
+                    <input matInput name="Date" type="date" [(ngModel)]="bpLocal.recordDate" class="form-control">
+                </mat-form-field>
+                <br>
+                <!-- <div class="form-group">
+                    <label>Morning</label>
+                    <input name="morning" type="text" [(ngModel)]="bpLocal.morning" class="form-control">
+                </div> -->
+                <mat-form-field>
+                    <mat-label>Morning</mat-label>
+                    <input matInput name="morning" type="text" [(ngModel)]="bpLocal.morning" class="form-control">
+                </mat-form-field>
+                <!-- <div class="form-group">
+                    <label>Afternoon</label>
+                    <input name="afternoon" type="text" [(ngModel)]="bpLocal.afternoon" class="form-control">
+                </div> -->
+                <br>
+                <mat-form-field>
+                    <mat-label>Afternoon</mat-label>
+                    <input matInput name="afternoon" type="text" [(ngModel)]="bpLocal.afternoon" class="form-control">
+                </mat-form-field>
+                <br>
+                <!-- <div class="form-group">
+                    <label>Night</label>
+                    <input name="night" type="text" [(ngModel)]="bpLocal.night" class="form-control">
+                </div> -->
+                <mat-form-field>
+                    <mat-label>Night</mat-label>
+                    <input matInput name="night" type="text" [(ngModel)]="bpLocal.night" class="form-control">
+                </mat-form-field>
+                <!-- <input type="submit"> -->
+            </mat-card>       
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="secondary" (click)="remove(bpLocal.id)"
+                    *ngIf="bpLocal.id" type="button">Delete</button>
+            <a mat-button routerLink="/home">Cancel</a>
+        </mat-card-actions>
+    </form>
+</mat-card>
